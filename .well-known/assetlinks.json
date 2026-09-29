@@ -1,14 +1,13 @@
 [
   {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
+    "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
       "package_name": "com.jwisozk.fiveinarow",
       "sha256_cert_fingerprints": [
         "76:DD:B5:FF:4D:88:07:E9:53:F0:79:51:56:77:54:3F:01:D5:C4:EA:82:4D:68:66:21:30:42:5B:44:56:3F:BC",
-        "4A:44:F6:8B:1D:E1:B0:86:0E:D5:E0:EE:EB:31:CC:A0:92:2E:0C:C9:61:40:0F:7F:1D:00:CA:34:AD:F4:66:E2"
+        "4A:44:F6:8B:1D:E1:B0:86:0E:D5:E0:EE:EB:31:CC:A0:92:2E:0C:C9:61:40:0F:7F:1D:00:CA:34:AD:F4:66:E2",
+        "04:5C:EB:E8:86:CB:7F:A7:8F:48:25:98:0B:8F:37:A4:D4:D5:2B:DE:F2:84:85:91:DB:B9:F0:46:91:87:EE:F5"
       ]
     }
   }
