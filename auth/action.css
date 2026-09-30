@@ -1,0 +1,253 @@
+/* Стиль карточки приложения («Меню»): цвета — те же, что в core/ui/theme/Color.kt */
+:root {
+  --heavenly: #C1F0FF;
+  --header: #6EBDC5;
+  --flag: #FCDF6D;
+  --indigo: #174255;
+  --outer-space: #40494F;
+  --muted: #5F686D;
+  --munsell: #008CA5;
+  --orange: #F87E2E;
+  --error: #B23524;
+  --success: #006D39;
+  --placeholder: #888888;
+  --eye: #E3E3E3;
+  --rule-pending: #7A8589;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  color: var(--outer-space);
+  background: #f4f7f4 url('/auth/assets/bkgnd.jpg') repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border-bottom: 1px solid #D6E2DC;
+}
+
+.topbar-address { font-size: 15px; color: var(--indigo); padding-top: 2px; }
+
+.lang { display: flex; gap: 4px; }
+
+.lang-btn {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: var(--munsell);
+  padding: 8px 6px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.lang-btn[aria-current="true"] {
+  color: var(--indigo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page {
+  flex: 1;
+  padding: 40px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo { width: 118px; height: 74px; }
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--heavenly);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+.card-header { height: 40px; background: var(--header); display: flex; align-items: center; }
+
+.card-title {
+  margin: 0;
+  height: 40px;
+  padding: 4px 56px 0 16px;
+  display: flex;
+  align-items: center;
+  background: var(--flag);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 50%, calc(100% - 24px) 100%, 0 100%);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--indigo);
+}
+
+.card-body { padding: 24px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.noscript { font-size: 15px; line-height: 22px; text-align: center; }
+
+.centered { align-items: center; text-align: center; }
+
+.body-text { margin: 0; font-size: 15px; line-height: 22px; color: var(--outer-space); text-align: center; }
+
+.body-text .email { color: var(--indigo); }
+
+.outcome-title { margin: 0; font-size: 18px; font-weight: 400; color: var(--indigo); text-align: center; }
+
+.icon { width: 48px; height: 48px; display: block; margin: 8px auto 0; fill: var(--munsell); }
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  margin: 16px auto;
+  border: 5px solid #FFFFFF;
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 12px 14px 20px;
+  background: #FFFFFF;
+  border-radius: 30px;
+  box-shadow: inset 1px 2px 4px rgba(0,0,0,.3);
+}
+
+.field:focus-within { box-shadow: 0 0 10px #52A8EC; }
+
+.field.field-error { box-shadow: inset 1px 2px 4px rgba(0,0,0,.3), 0 0 0 1.5px var(--error); }
+
+.field.field-error:focus-within { box-shadow: 0 0 10px #52A8EC; }
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  color: var(--outer-space);
+  padding-top: 3px;
+}
+
+.field input::placeholder { color: var(--placeholder); }
+
+.eye { border: 0; background: transparent; padding: 0; width: 24px; height: 24px; cursor: pointer; display: flex; flex-shrink: 0; }
+
+.eye svg { width: 24px; height: 24px; fill: var(--eye); }
+
+.rules { margin: 0; padding: 0 20px; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+
+.rule { display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: var(--muted); }
+
+.rule svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.rule.ok { color: var(--success); }
+
+.rule.failed { color: var(--error); }
+
+.rule.ok svg { fill: var(--success); }
+
+.rule.failed svg { fill: var(--error); }
+
+.field-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--error);
+}
+
+.field-message svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; fill: var(--error); }
+
+.status-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--success);
+  text-align: left;
+}
+
+.status-line svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; fill: var(--success); }
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--error);
+  border-radius: 12px;
+  background: #FFFFFF;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--error);
+  text-align: left;
+}
+
+.banner svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; fill: var(--error); }
+
+.btn-primary {
+  width: 100%;
+  height: 48px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--orange);
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 16px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.btn-primary:active { filter: brightness(.92); }
+
+.btn-primary[disabled] { cursor: progress; opacity: .85; }
+
+.btn-link {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  color: var(--munsell);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 10px 8px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.footnote { margin: 0; max-width: 440px; font-size: 13px; line-height: 18px; color: var(--muted); text-align: center; }
+
+@media (min-width: 720px) {
+  .topbar { height: 64px; padding: 0 32px; }
+  .topbar-address { font-size: 16px; }
+  .lang-btn { font-size: 15px; padding: 10px 8px; }
+  .page { justify-content: center; gap: 32px; padding: 32px; }
+  .logo { width: 154px; height: 96px; }
+  .card-body { padding: 32px 24px 28px; }
+}
